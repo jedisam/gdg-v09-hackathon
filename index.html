@@ -48,16 +48,18 @@
 
         <body>
 
-            <form id="form" style="display: flex; flex-direction: column; text-align: center; flex-flow: column;">
+            <form id="form" style="display: flex; flex-direction: column; text-align: center; flex-flow: column;"
+                action="https://formspree.io/f/maylqzan" method="POST">
 
                 <span class="heading-primary--sub">
                     We promise we love suggestions
                 </span>
-                <input type="text" name="email" placeholder="email">
+                <input type="text" name="_replyto" placeholder="email">
                 <p>Email must be a valid address, e.g. me@mydomain.com</p>
-                <textarea name="" id="" cols="30" rows="10" placeholder="comment"></textarea>
+                <textarea name="message" id="" cols="20" rows="8" placeholder="comment"></textarea>
                 <p>Email must be a valid address, e.g. me@mydomain.com</p>
-
+                <button id="sub" type="submit" value="Send" class="btn btn--animated"
+                    style="border: 1px solid grey; padding: 1rem;">Send</button>
 
             </form>
             <script type="text/javascript" src="validation.js"></script>
@@ -108,5 +110,36 @@
     </main>
 
 </body>
+<script>
+    var zubaza = (function () {
+        const inputs = document.querySelectorAll("input");
+
+        const patterns = {
+            email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
+        };
+
+        function validate(field, regex) {
+            if (regex.test(field.value)) {
+                // console.log(true);
+                field.className = "valid";
+            } else {
+                field.className = "invalid";
+            }
+        }
+        inputs.forEach((input) => {
+            input.addEventListener("keyup", function (e) {
+                // console.log(e.target.attributes.name.value);
+                validate(e.target, patterns[e.target.attributes.name.value]);
+            });
+        });
+    })();
+
+    document.getElementById('sub').addEventListener('click',
+        function (e) {
+            e.preventDefault()
+            zubaza()
+        }
+    )
+</script>
 
 </html>
