@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Weed AI",
+    "slug": "weed-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/deep-learning-quora.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.Weedai.weedai",
+      "versionCode": 1,
+      "enableDangerousExperimentalLeanBuilds": true
+    }
+  }
+}
